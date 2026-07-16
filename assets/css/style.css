@@ -16,6 +16,9 @@
   --gold: #A6862E;
   --gold-text: #D9C89A;
   --mint: #E7EEE8;            /* Projects 배경 */
+  --beige: #EFEADA;           /* Services 차별점/성공사례 배경 (핸드오프 확장) */
+  --breadcrumb: #2A4E3B;      /* Services 상세 브레드크럼 배경 (핸드오프 확장) */
+  --problem-brown: #8A6D3B;   /* 서비스 카드 "문제/해결" 라벨 (핸드오프 확장) */
   --card-grad-start: #1F4433;
   --card-grad-end: #0E2119;
 
@@ -172,6 +175,7 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(21, 31, 26, 0.08);
+  scroll-margin-top: 100px; /* Services 상세 → Projects 앵커 이동 시 sticky 헤더에 가려지지 않도록 */
 }
 .card-image {
   width: 100%;
@@ -326,6 +330,106 @@ button { font-family: inherit; cursor: pointer; }
 }
 .footer-divider p { font-size: 13px; margin: 0; }
 
+/* ---------- Services 허브: 문제 제기 (Container 1) ---------- */
+.problem-section { background: var(--forest); color: var(--ivory); padding: 88px 40px 72px; }
+.problem-section .inner { max-width: 1000px; margin: 0 auto; }
+.problem-section .head { text-align: center; margin-bottom: 56px; }
+.problem-section .label { font-size: 13px; letter-spacing: 0.2em; color: var(--gold-text); text-transform: uppercase; margin: 0 0 16px; }
+.problem-section h1 { font-size: 38px; font-weight: 800; color: #FCFFFD; margin: 0 0 20px; }
+.problem-section .lede { font-size: 16.5px; color: rgba(247, 244, 236, 0.75); max-width: 680px; margin: 0 auto 32px; }
+.divider-gold { width: 48px; height: 2px; background: var(--gold); margin: 0 auto 24px; }
+.problem-section h2.sub { font-size: 20px; font-weight: 700; color: var(--gold); margin: 0; }
+.checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+.checklist-item { display: flex; gap: 14px; align-items: flex-start; }
+.checklist-item .dot {
+  flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--gold); color: #FFFFFF; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+}
+.checklist-item p { color: #FCFFFD; margin: 0; font-size: 15.5px; }
+
+/* ---------- Services 허브: 차별점 (Container 2, 베이지 배경) ---------- */
+.differentiators { background: var(--beige); padding: 72px 40px; }
+.differentiators h2 { text-align: center; margin: 0 0 48px; font-size: 30px; font-weight: 800; color: var(--text-dark); }
+.diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.diff-card { background: #FFFFFF; border-radius: 4px; padding: 32px; box-shadow: 0 1px 3px rgba(21, 31, 26, 0.08); }
+.diff-card h3 { font-size: 19px; font-weight: 800; margin: 0 0 14px; color: var(--forest); }
+.diff-card p { font-size: 14.5px; color: var(--text-muted); margin: 0; }
+
+/* ---------- Services 허브: 서비스 카드 (Container 3) ---------- */
+.service-showcase { padding: 88px 40px; }
+.service-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: stretch; }
+.service-card { background: #FFFFFF; border-radius: 4px; overflow: hidden; box-shadow: 0 1px 3px rgba(21, 31, 26, 0.08); display: flex; flex-direction: column; }
+.service-card .thumb {
+  height: 180px; background: linear-gradient(160deg, var(--card-grad-start) 0%, var(--card-grad-end) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.service-card .thumb span { color: rgba(247, 244, 236, 0.55); font-size: 15px; }
+.service-card .body { padding: 28px 28px 32px; display: flex; flex-direction: column; flex: 1; }
+.service-card h3 { font-size: 20px; font-weight: 800; margin: 0 0 14px; color: var(--text-dark); }
+.badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.badge-gold-soft { font-size: 12px; color: var(--gold); background: rgba(166, 134, 46, 0.1); padding: 5px 12px; border-radius: 999px; font-weight: 700; }
+.pl-label { font-size: 14px; color: var(--problem-brown); font-weight: 700; margin: 0 0 6px; }
+.service-card .body > p { font-size: 14.5px; color: var(--text-muted); margin: 0 0 16px; }
+.service-card .meta-line { font-size: 14px; color: var(--text-dark); margin: 0 0 20px; }
+.service-card .meta-line span { color: var(--text-muted); }
+.btn-block { margin-top: auto; display: inline-block; text-align: center; background: var(--forest); color: var(--ivory); padding: 13px 0; border-radius: 999px; font-weight: 700; font-size: 14.5px; }
+
+/* ---------- Services 상세: 브레드크럼 ---------- */
+.breadcrumb-bar { background: var(--breadcrumb); padding: 24px 0; }
+.breadcrumb-pill { display: inline-block; background: var(--beige); color: var(--forest); padding: 9px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 700; }
+
+/* ---------- Services 상세: 해결책 (Container 1, 다크그린) ---------- */
+.detail-hero { background: var(--forest); padding: 56px 40px 64px; color: var(--ivory); }
+.detail-hero .inner { max-width: 900px; margin: 0 auto; }
+.detail-hero .head { text-align: center; margin-bottom: 36px; }
+.detail-hero .label { font-size: 13px; letter-spacing: 0.2em; color: var(--gold-text); text-transform: uppercase; margin: 0 0 16px; font-weight: 700; }
+.detail-hero h1 { font-size: 38px; font-weight: 800; margin: 0 0 28px; color: #FCFFFD; }
+.detail-hero h2.principle { font-size: 26px; font-weight: 800; margin: 0 0 24px; color: var(--gold-text); }
+.detail-hero .body-text { font-size: 16px; color: rgba(247, 244, 236, 0.75); margin: 0; }
+.diff-grid-dark { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.diff-card-dark { background: rgba(247, 244, 236, 0.06); border: 1px solid rgba(247, 244, 236, 0.12); border-radius: 4px; padding: 28px; }
+.diff-card-dark h3 { font-size: 17px; font-weight: 800; margin: 0 0 12px; color: #FCFFFD; }
+.diff-card-dark p { font-size: 14px; color: rgba(247, 244, 236, 0.75); margin: 0; }
+
+/* ---------- Services 상세: 프로그램 카드 (Container 2, 핵심) ---------- */
+.programs-section { padding: 96px 40px; max-width: 1280px; margin: 0 auto; }
+.programs-section > h2 { text-align: center; margin: 0 0 56px; font-size: 32px; font-weight: 800; color: var(--text-dark); }
+.program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+.program-card { background: #FFFFFF; border-radius: 6px; padding: 36px; box-shadow: 0 2px 8px rgba(21, 31, 26, 0.08); display: flex; flex-direction: column; }
+.program-card h3 { font-size: 22px; font-weight: 800; margin: 0 0 8px; color: var(--text-dark); white-space: nowrap; }
+.program-card .tagline { font-size: 15px; color: var(--gold); font-weight: 700; margin: 0 0 24px; }
+.meta-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+.meta-pill { font-size: 13px; color: var(--text-dark); background: var(--beige); padding: 7px 16px; border-radius: 999px; font-weight: 600; }
+.program-card .intro { font-size: 15.5px; color: var(--text-muted); margin: 0 0 32px; }
+.curriculum { display: flex; flex-direction: column; gap: 18px; margin-bottom: 32px; }
+.curriculum-step { display: flex; gap: 16px; align-items: flex-start; }
+.curriculum-step .num {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--forest); color: var(--ivory); display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+}
+.curriculum-step p { font-size: 15px; color: var(--text-dark); margin: 4px 0 0; }
+.keyword-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
+.keyword-tag { font-size: 12.5px; color: var(--gold); border: 1px solid rgba(166, 134, 46, 0.4); padding: 6px 14px; border-radius: 999px; font-weight: 700; }
+.programs-footnote { text-align: center; font-size: 14px; color: var(--text-muted); margin: 36px 0 0; }
+.option-badge { font-size: 12.5px; color: var(--gold); background: rgba(166, 134, 46, 0.1); padding: 8px 14px; border-radius: 6px; margin: 0 0 18px; font-weight: 600; }
+
+/* ---------- Services 상세: 성공 사례 (Container 3) ---------- */
+.success-cases { background: var(--beige); padding: 88px 40px; }
+.case-list { display: flex; flex-direction: column; gap: 32px; }
+.case-card-split { background: #FFFFFF; border-radius: 6px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; box-shadow: 0 1px 3px rgba(21, 31, 26, 0.08); }
+.case-card-split .thumb {
+  background: linear-gradient(160deg, var(--card-grad-start) 0%, var(--card-grad-end) 100%);
+  min-height: 220px; display: flex; align-items: center; justify-content: center;
+}
+.case-card-split .thumb span { color: rgba(247, 244, 236, 0.55); font-size: 15px; }
+.case-card-split .text { padding: 36px; display: flex; flex-direction: column; }
+.case-card-split h3 { font-size: 19px; font-weight: 800; margin: 0 0 10px; color: var(--text-dark); }
+.case-card-split .footer-row { display: flex; align-items: center; gap: 16px; margin-top: auto; }
+.case-card-split .footer-row .btn-sm { flex-shrink: 0; display: inline-block; background: var(--forest); color: var(--ivory); padding: 10px 22px; border-radius: 999px; font-weight: 700; font-size: 13.5px; }
+.case-card-split .footer-row .testimonial { font-size: 13.5px; color: var(--text-muted); margin: 0; text-align: right; font-style: italic; }
+
 /* ---------- Interior page header (Home 외 페이지 공용 — 핸드오프 확장) ----------
    Home의 히어로는 전체 화면 사진 배너지만, 하위 페이지는 짧은 배너로 축소해
    같은 다크그린/골드 톤을 유지하면서 본문에 집중할 수 있게 한다. */
@@ -427,6 +531,10 @@ button { font-family: inherit; cursor: pointer; }
   .content-block { grid-template-columns: 1fr; gap: 40px; }
   .content-block.reverse { direction: ltr; }
   .contact-info { grid-template-columns: 1fr; gap: 40px; }
+  .checklist-grid { grid-template-columns: 1fr; }
+  .diff-grid, .diff-grid-dark, .service-card-grid { grid-template-columns: 1fr; }
+  .program-grid { grid-template-columns: 1fr; }
+  .case-card-split { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .main-nav { gap: 20px; }
@@ -437,4 +545,7 @@ button { font-family: inherit; cursor: pointer; }
   .strengths-grid { grid-template-columns: 1fr; }
   .site-footer .footer-row { flex-direction: column; align-items: flex-start; }
   .page-header h1 { font-size: 30px; }
+  .program-card h3 { white-space: normal; }
+  .case-card-split .footer-row { flex-direction: column; align-items: flex-start; }
+  .case-card-split .footer-row .testimonial { text-align: left; }
 }
